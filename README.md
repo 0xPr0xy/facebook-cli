@@ -1,4 +1,4 @@
-	Facebook-CLI
+Facebook-CLI
 ============
 
 Let's you use facebook from the command line
@@ -45,4 +45,12 @@ Commands
 Preview of creating a status update with image
 -----------------------------------------------
 
-![Alt text](http://2.bp.blogspot.com/-HWql5rl_JMQ/UFYCDKNeZoI/AAAAAAAAAng/TgfvoZUu3xw/s1600/Screen+Shot+2012-09-16+at+4.49.45+PM.png "facebook-cli in action")
+![facebook-cli in action](http://2.bp.blogspot.com/-HWql5rl_JMQ/UFYCDKNeZoI/AAAAAAAAAng/TgfvoZUu3xw/s1600/Screen+Shot+2012-09-16+at+4.49.45+PM.png "facebook-cli in action")
+
+Preview of post on facebook
+---------------------------
+
+![result on facebook](http://1.bp.blogspot.com/-RotdPkUl_RI/UFYDgrr_YGI/AAAAAAAAAnw/R2afKdR_L4g/s1600/Screen+Shot+2012-09-16+at+6.50.28+PM.png "result on facebook")
+
+
+
