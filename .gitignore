@@ -1,2 +1,4 @@
 *.DS_Store
 .fb_access_token
+*.pyc
+*.log
