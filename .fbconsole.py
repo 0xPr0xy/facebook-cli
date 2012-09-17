@@ -16,7 +16,7 @@ from urlparse import urlparse, parse_qs
 from urllib import urlencode
 from pprint import pprint
 
-APP_ID = '121652967876393'
+APP_ID = '501040176591716'
 REDIRECT_URI = 'http://127.0.0.1:8080'
 ACCESS_TOKEN = None
 LOCAL_FILE = '.fb_access_token'
