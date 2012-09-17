@@ -19,7 +19,7 @@ class Facebook:
 		"""
 		logging.basicConfig(filename='fb.log',level=logging.DEBUG)
 		self.fb = imp.load_source('fb', '.fbconsole.py')
-		self.fb.AUTH_SCOPE = ['publish_stream']
+		self.fb.AUTH_SCOPE = ['publish_stream','read_stream','user_status']
 		self.fb.authenticate()
 
 		if page == 'feed':
@@ -65,6 +65,7 @@ class Facebook:
 		Output posts on your wall
 		"""
 		data = self.fb.graph('/me/posts')
+		print self.fb.graph('/me/profile')
 		for item in data['data']:
 			try:	
 				print 'TIME:' + str(item['created_time']) +' ID:'+ str(item['id']) + '\n' + str(item['message']) + '\n' + str(item['comments']['count']) + '\n'
