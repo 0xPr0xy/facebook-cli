@@ -153,12 +153,13 @@ class Facebook:
 		friend_name = raw_input('Type Friend Name:\n')
 		try:
 			for item in data['data']:
-				if item['name'] == friend_name:
+				if 'name' in item and item['name'] == friend_name:
 					print 'Friend Found!'
 					friend_id = item['id']
 					message = raw_input('Type message:\n')
 					self.fb.graph_post("/%s/feed" % friend_id, {"message":message})
 					print 'Posted %s to: %s' %(message, item['name'])
+			print 'Friend not found :(' 
 		except Exception as e:
 			logging.exception(e)	
 
@@ -171,13 +172,14 @@ class Facebook:
 		friend_name = raw_input('Type Friend Name:\n')
 		try:
 			for item in data['data']:
-				if item['name'] == friend_name:
+				if 'name' in item and item['name'] == friend_name:
 					print 'Friend Found!'
 					friend_id = item['id']
 					message = raw_input('Type message:\n')
 					photo_location = raw_input('Type photo location:\n')
 					self.fb.graph_post("/%s/photos" % friend_id, {"message":message,  "source":open(photo_location)})
 					print 'Posted %s with image %s to: %s' %(message, photo_location, item['name'])
+			print 'Friend not found :('
 		except Exception as e:
 			logging.exception(e)	
 
@@ -191,6 +193,7 @@ class Facebook:
 			self.fb.graph_delete("/"+id)
 			print 'deleted'
 		except Exception as e:
+			print 'delete failed'
 			logging.exception(e)	
 
 
