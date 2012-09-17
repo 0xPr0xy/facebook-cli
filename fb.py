@@ -54,10 +54,17 @@ class Facebook:
 		"""
 		data = self.fb.graph('/me/home')
 		for item in data['data']:
-			try:	
-				print str(item['from']['name']) +' ID:'+ str(item['id']) + ':\n' + str(item['message']) + '\n' + str(item['comments']['count']) + '\n'
-			except Exception as e:
-				logging.exception(e)
+			if 'message' in item:
+				if 'from' in item:
+					print '%s:' % item['from']['name']
+				if 'name' in item:
+					print '%s' % item['name']
+				print '%s' %item['message']
+				if 'comments' in item:
+					print 'comments: %s' %item['comments']['count']
+				if 'likes' in item:
+					print 'likes: %s' %item['likes']['count']
+				print 'Post ID:%s\n' %item['id']
 
 
 	def show_profile(self):
@@ -65,13 +72,17 @@ class Facebook:
 		Output posts on your wall
 		"""
 		data = self.fb.graph('/me/posts')
-		print self.fb.graph('/me/profile')
 		for item in data['data']:
-			try:	
-				print 'TIME:' + str(item['created_time']) +' ID:'+ str(item['id']) + '\n' + str(item['message']) + '\n' + str(item['comments']['count']) + '\n'
-			except Exception as e:
-				logging.exception(e)
-
+			if 'message' in item:
+				if 'name' in item:
+					print '\n%s' % item['name']
+				print '%s' %item['message']
+				if 'comments' in item:
+					print 'comments: %s' %item['comments']['count']
+				if 'likes' in item:
+					print 'likes: %s' %item['likes']['count']
+				print 'Post ID:%s\n' %item['id']
+				
 
 	def show_friends(self):
 		"""
@@ -80,7 +91,7 @@ class Facebook:
 		data = self.fb.graph('/me/friends')
 		for item in data['data']:
 			try:	
-				print str(item['name'])
+				print '%s' %item['name']
 			except Exception as e:
 				logging.exception(e)
 
@@ -92,7 +103,7 @@ class Facebook:
 		data = self.fb.graph('/me/likes')
 		for item in data['data']:
 			try:	
-				print str(item['name'])
+				print '%s' %item['name']
 			except Exception as e:
 				logging.exception(e)
 
@@ -104,7 +115,7 @@ class Facebook:
 		data = self.fb.graph('/me/music')
 		for item in data['data']:
 			try:	
-				print str(item['name'])
+				print '%s' %item['name']
 			except Exception as e:
 				logging.exception(e)
 
